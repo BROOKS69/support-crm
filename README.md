@@ -51,7 +51,7 @@ A robust, scalable REST API backend for a Customer Relationship Management (CRM)
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/yourusername/supportcrm.git
+   git clone https://github.com/BROOKS69/supportcrm-main
    cd supportcrm
    ```
 
@@ -197,6 +197,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 📞 Support
 
 For questions or support, please open an issue on GitHub or contact the development team.
+@BROOKS69 or devtoolsconglomerate.services@gmail.com
 
 ---
 
