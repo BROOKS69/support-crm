@@ -135,11 +135,11 @@ supportcrm/
 │   ├── models.py            # SQLAlchemy models
 │   ├── schemas.py           # Pydantic schemas
 │   └── routers/
-│       ├── auth.py          # Authentication endpoints
 │       ├── customers.py     # Customer management
 │       ├── tickets.py       # Ticket management
 │       ├── logs.py          # Communication logs
 │       └── reports.py       # Analytics & reporting
+├── auth.py                  # Authentication endpoints
 ├── requirements.txt         # Python dependencies
 ├── README.md               # Project documentation
 └── crm.db                 # SQLite database (auto-generated)
@@ -148,6 +148,57 @@ supportcrm/
 ## 🧪 Testing
 
 Run the development server and use the interactive API documentation at `/docs` to test endpoints manually, or use tools like Postman, Insomnia, or curl commands.
+
+### Running Tests
+
+```bash
+# Run all tests
+pytest test_api.py -v
+
+# Run with coverage
+pytest test_api.py --cov=app --cov-report=html
+```
+
+## 🔧 Troubleshooting
+
+### Database Schema Issues
+
+If you encounter errors like "no such column: tickets.assigned_agent_id", the database schema is out of sync with the models:
+
+**Solution 1: Reset Database (Development Only)**
+```bash
+# Stop the server first
+# Delete the database file
+rm crm.db
+
+# Restart the server - it will recreate tables automatically
+uvicorn app.main:app --reload
+```
+
+**Solution 2: Run Migration Script (Recommended)**
+```bash
+# Run the migration script to add missing columns
+python migrate_db.py
+
+# Restart the server
+uvicorn app.main:app --reload
+```
+
+**Solution 3: Manual Migration (Production)**
+For production environments, use proper database migration tools like Alembic.
+
+### Authentication Issues
+
+- Ensure JWT tokens are included in Authorization headers as `Bearer <token>`
+- Tokens expire after 30 minutes by default
+- Check user roles for access control
+
+### Common Errors
+
+- **422 Unprocessable Entity**: Check request data format and required fields
+- **401 Unauthorized**: Verify JWT token validity and format
+- **404 Not Found**: Confirm endpoint URLs and HTTP methods
+- **500 Internal Server Error**: Check server logs for detailed error information
 
 ## 🔒 Security Features
 
@@ -196,8 +247,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 📞 Support
 
-For questions or support, please open an issue on GitHub or contact the development team.
-@BROOKS69 or devtoolsconglomerate.services@gmail.com
+For questions or support, please open an issue on GitHub or contact the development team at email: devtoolsconglomerate.services@gmail.com or dosoowisdom1@gmail.com
 
 ---
 
