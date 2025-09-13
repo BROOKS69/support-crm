@@ -92,6 +92,18 @@ class CustomerCreate(CustomerBase):
     """
     pass
 
+class CustomerUpdate(BaseModel):
+    """
+    Schema for customer update requests.
+
+    All fields are optional to allow partial updates.
+    """
+    name: Optional[str] = None
+    email: Optional[str] = None
+    phone: Optional[str] = None
+    company: Optional[str] = None
+    notes: Optional[str] = None
+
 class CustomerOut(CustomerBase):
     """
     Schema for customer data in API responses.
