@@ -10,9 +10,20 @@ from fastapi import FastAPI
 from app import models, database, auth
 from app.routers import customers, tickets, logs, reports
 
-# Create all database tables defined in models
+# Create all database tables defined in models (only if they don't exist)
 # This ensures the database schema is up to date on application startup
-models.Base.metadata.create_all(bind=database.engine)
+# Note: In production, use proper database migrations (Alembic)
+from sqlalchemy import inspect
+
+# Check if tables already exist to avoid unnecessary recreation during reloads
+inspector = inspect(database.engine)
+existing_tables = inspector.get_table_names()
+
+if not existing_tables:  # Only create tables if database is empty
+    models.Base.metadata.create_all(bind=database.engine)
+    print("Database tables created successfully")
+else:
+    print("Database tables already exist, skipping creation")
 
 # Initialize FastAPI application with title for API documentation
 app = FastAPI(title="Support CRM Backend")
