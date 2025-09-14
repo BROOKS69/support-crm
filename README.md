@@ -248,7 +248,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 **Project Maintainer**: [BROOKS]
 
 - **Email**: dosoowisdom1@gmail.com
-- **GitHub**: [@BROOKS69](https://https://github.com/BROOKS69)
+- **GitHub**: [@BROOKS69](https://github.com/BROOKS69)
 - **LinkedIn**: [Your LinkedIn Profile](https://www.linkedin.com/in/wisdomdosoo1)
 
 ---
