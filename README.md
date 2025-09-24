@@ -74,7 +74,7 @@ A comprehensive backend system built with Python and FastAPI that provides secur
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/@BROOKS69/support-crm-backend.git
+git clone https://github.com/BROOKS69/support-crm-backend.git
 cd support-crm-backend
 ```
 
